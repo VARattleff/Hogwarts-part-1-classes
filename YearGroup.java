@@ -1,4 +1,5 @@
 import java.time.LocalDate;
+import java.util.Arrays;
 
 public class YearGroup extends HogwartsStudent{
 
@@ -43,5 +44,13 @@ public class YearGroup extends HogwartsStudent{
 
     public void setStudents(Student[] students) {
         this.students = students;
+    }
+
+    public String toString() {
+        return "YearGroup{" +
+                "schoolYear=" + schoolYear +
+                ", beginningOfSchoolYear=" + beginningOfSchoolYear +
+                ", students=" + Arrays.toString(students) +
+                '}';
     }
 }
