@@ -1,11 +1,25 @@
 package src.edu.generic;
 
+import src.edu.hogwarts.data.empType;
+
 import java.time.LocalDate;
 
+
+
 public class Student extends Person {
+
+    private empType employment = empType.STUDENT;
     private int enrollmentYear;
     private int graduationYear;
     private  boolean graduated;
+
+    public empType getEmployment() {
+        return employment;
+    }
+
+    public void setEmployment(empType employment) {
+        this.employment = employment;
+    }
 
     public Student(){
         super();
@@ -40,12 +54,13 @@ public class Student extends Person {
         this.graduated = graduated;
     }
 
+    @Override
     public String toString() {
-        return "src.edu.generic.Student{\n" +
-                "fullName" + getFullName() + "\n" +
-                "enrollmentYear: " + enrollmentYear + "\n" +
-                "graduationYear: " + graduationYear + "\n" +
-                "graduated: " + graduated + "\n" +
-                "}";
+        return "Student{" +
+                "employment=" + employment +
+                ", enrollmentYear=" + enrollmentYear +
+                ", graduationYear=" + graduationYear +
+                ", graduated=" + graduated +
+                '}';
     }
 }

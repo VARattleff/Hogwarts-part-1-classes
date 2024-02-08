@@ -57,6 +57,7 @@ public class HogwartsStudent extends Student implements HogwartsPerson  {
         }
         return  "src.edu.hogwarts.data.HogwartsStudent{\n" +
                 " fullName: " + getFullName() + "\n" +
+                " employment: " + getEmployment() + "\n" +
                 " enrollmentYear: " + getEnrollmentYear() + "\n" +
                 " graduationYear: " + getGraduationYear() + "\n" +
                 " graduated: " + isGraduated() + "\n" +
