@@ -10,6 +10,7 @@ public class MenuHandler {
     public MenuHandler(UserInterface userInterface) {
         this.userInterface = userInterface;
         this.scanner = new Scanner(System.in);
+        userInterface.setMenuHandler(this);
     }
 
     public void introMenu() {
@@ -99,6 +100,58 @@ public class MenuHandler {
             default:
                 System.out.println("Invalid choice. Please choose again.");
                 viewMenu();
+                break;
+        }
+    }
+
+    public void searchOrFilter() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("""
+            >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+            
+            Choose what you want to search or filter on:
+            1. Search by name
+            2. Search by House
+            3. Filter by house ascending
+            4. Filter by house descending
+            5. Filter by age ascending
+            6. Filter by age descending
+            7. Back
+            
+            >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+            """);
+
+        int choice = scanner.nextInt();
+        switch (choice) {
+            case 1:
+                System.out.println("Enter the name you want to search for: ");
+                String name = scanner.next();
+                // mangler logik
+                break;
+            case 2:
+                System.out.println("Enter the house you want to search for: ");
+                String house = scanner.next();
+                // mangler logik
+                break;
+            case 3:
+                // mangler logik
+                break;
+            case 4:
+                // mangler logik
+                break;
+            case 5:
+                // mangler logik
+                break;
+            case 6:
+                // mangler logik
+                break;
+            case 7:
+                viewMenu();
+                break;
+            default:
+                System.out.println("Invalid choice. Please choose again.");
+                searchOrFilter();
                 break;
         }
     }

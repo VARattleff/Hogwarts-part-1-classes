@@ -64,13 +64,15 @@ public class Person {
         int lastSpaceIndex = fullName.lastIndexOf(" ");
         if (firstSpaceIndex == -1) {
             setFirstName(fullName);
+            setMiddleName("");
+            setLastName("");
             return;
         }
         setFirstName(fullName.substring(0, firstSpaceIndex));
         if (firstSpaceIndex != lastSpaceIndex) {
             setMiddleName(fullName.substring(firstSpaceIndex + 1, lastSpaceIndex));
         } else {
-            this.middleName = null;
+            setMiddleName("");
         }
         setLastName(fullName.substring(lastSpaceIndex + 1));
     }

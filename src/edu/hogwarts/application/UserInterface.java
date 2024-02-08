@@ -1,6 +1,5 @@
 package src.edu.hogwarts.application;
 
-import src.edu.generic.Person;
 import src.edu.hogwarts.controller.StudentController;
 import src.edu.hogwarts.controller.TeacherController;
 
@@ -17,10 +16,15 @@ public class UserInterface {
 
     private final StudentController studentController;
     private final TeacherController teacherController;
+    private MenuHandler menuHandler;
 
     public UserInterface(StudentController studentController, TeacherController teacherController) {
         this.studentController = studentController;
         this.teacherController = teacherController;
+    }
+
+    public void setMenuHandler(MenuHandler menuHandler) {
+        this.menuHandler = menuHandler;
     }
 
     public void createStudent() {
@@ -30,7 +34,7 @@ public class UserInterface {
         String houseString = scanner.nextLine().toUpperCase();
         HouseOrigin houseOrigin = HouseOrigin.valueOf(houseString);
 
-        House house ;
+        House house;
         switch (houseOrigin) {
             case GRYFFINDOR:
                 house = House.getGryffindor();
@@ -46,15 +50,16 @@ public class UserInterface {
                 break;
             default:
                 System.out.println("Invalid house. Please choose again.");
-                createStudent();
+                menuHandler.introMenu();
                 return;
         }
 
         System.out.println("Enter if student is a prefect (true/false): ");
         boolean isPrefect = scanner.nextBoolean();
+        scanner.nextLine();
 
         System.out.println("Enter sports (comma-separated): ");
-        String[] sports = scanner.next().split(",");
+        String[] sports = scanner.nextLine().split(",");
 
         System.out.println("Enter start year: ");
         int startYear = scanner.nextInt();
@@ -64,18 +69,17 @@ public class UserInterface {
 
         System.out.println("Enter if student is pure-blood (true/false): ");
         boolean isPureBlood = scanner.nextBoolean();
+        scanner.nextLine();
 
         System.out.println("Enter student name: ");
-        String fullName = scanner.next();
-        Person person = new Person();
-        person.setFullName(fullName);
+        String fullName = scanner.nextLine();
 
         LocalDate birthdate = null;
         boolean validDate = false;
         while (!validDate) {
             try {
-                System.out.println("Enter Teacher birthdate (yyyy-mm-dd): ");
-                birthdate = LocalDate.parse(scanner.next());
+                System.out.println("Enter student birthdate (yyyy-mm-dd): ");
+                birthdate = LocalDate.parse(scanner.nextLine());
                 validDate = true;
             } catch (DateTimeParseException e) {
                 System.out.println("Invalid date format. Please enter the date in yyyy-mm-dd format.");
@@ -83,7 +87,13 @@ public class UserInterface {
         }
 
         HogwartsStudent student = new HogwartsStudent(house, isPrefect, sports, startYear, endYear, isPureBlood, fullName, birthdate);
-        System.out.println("Student created: " + student);
+        studentController.add(student);
+
+        System.out.println("Student created");
+        System.out.println("Press enter to return to the main menu.");
+        scanner.nextLine();
+
+        menuHandler.introMenu();
     }
 
     public void createTeacher() {
@@ -93,7 +103,7 @@ public class UserInterface {
         String houseString = scanner.nextLine().toUpperCase();
         HouseOrigin houseOrigin = HouseOrigin.valueOf(houseString);
 
-        House house ;
+        House house;
         switch (houseOrigin) {
             case GRYFFINDOR:
                 house = House.getGryffindor();
@@ -109,37 +119,42 @@ public class UserInterface {
                 break;
             default:
                 System.out.println("Invalid house. Please choose again.");
-                createTeacher();
+                menuHandler.introMenu();
                 return;
         }
 
         System.out.println("Enter if teacher is a head (true/false): ");
         boolean isHead = scanner.nextBoolean();
+        scanner.nextLine();
 
         System.out.println("Enter start date (yyyy-mm-dd): ");
-        LocalDate startDate = LocalDate.parse(scanner.next());
+        LocalDate startDate = LocalDate.parse(scanner.nextLine());
 
         System.out.println("Enter end date (yyyy-mm-dd): ");
-        LocalDate endDate = LocalDate.parse(scanner.next());
+        LocalDate endDate = LocalDate.parse(scanner.nextLine());
 
         System.out.println("Enter teacher name: ");
-        String fullName = scanner.next();
-        Person person = new Person();
-        person.setFullName(fullName);
+        String fullName = scanner.nextLine();
 
         LocalDate birthdate = null;
         boolean validDate = false;
         while (!validDate) {
             try {
-                System.out.println("Enter student birthdate (yyyy-mm-dd): ");
-                birthdate = LocalDate.parse(scanner.next());
+                System.out.println("Enter teacher birthdate (yyyy-mm-dd): ");
+                birthdate = LocalDate.parse(scanner.nextLine());
                 validDate = true;
             } catch (DateTimeParseException e) {
                 System.out.println("Invalid date format. Please enter the date in yyyy-mm-dd format.");
             }
         }
+
         HogwartsTeacher teacher = new HogwartsTeacher(house, isHead, startDate, endDate, fullName, birthdate);
-        System.out.println("Teacher created: " + teacher);
+        teacherController.add(teacher);
+        System.out.println("Teacher created:");
+        System.out.println("Press enter to return to the main menu.");
+        scanner.nextLine();
+
+        menuHandler.introMenu();
     }
 
 
@@ -154,6 +169,7 @@ public class UserInterface {
                     student.getGraduationYear(), student.isGraduated(), student.getHouse().getName());
         }
         System.out.println("└─────────────────────────────────────────────────────────────────────────────────────────────────────");
+        menuHandler.searchOrFilter();
     }
 
     public void viewTeacher() {
@@ -168,6 +184,7 @@ public class UserInterface {
                     teacher.getEmploymentEnd(), teacher.getHouse().getName(), teacher.isHeadOfHouse());
         }
         System.out.println("└────────────────────────────────────────────────────────────────────────────────────────────────────────────────");
+        menuHandler.searchOrFilter();
     }
 
     public void viewAll() {
@@ -187,5 +204,6 @@ public class UserInterface {
 
         }
         System.out.println("└───────────────────────────────────────────────────────────────────");
+        menuHandler.searchOrFilter();
     }
 }
