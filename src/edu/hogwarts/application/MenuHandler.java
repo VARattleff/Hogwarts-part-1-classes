@@ -20,6 +20,7 @@ public class MenuHandler {
 
                 1. Create
                 2. View Student or Teachers
+                
                 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
                 """);
 
@@ -41,10 +42,12 @@ public class MenuHandler {
     private void createMenu() {
         System.out.println("""
                 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+                
                 Choose what you want to create:
                 1. Student
                 2. Teacher
                 3. Back
+                
                 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
                 """);
 
@@ -69,11 +72,13 @@ public class MenuHandler {
     private void viewMenu() {
         System.out.println("""
                 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+                
                 Choose what you want to view:
                 1. View Student
                 2. View Teacher
                 3. View All
                 4. Back
+                
                 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
                 """);
 

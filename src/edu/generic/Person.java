@@ -14,10 +14,6 @@ public class Person {
         this("Unknown", "Unknown", "Unknown", LocalDate.now());
     }
 
-    public Person(Person person) {
-        this(person.getFirstName(), person.getMiddleName(), person.getLastName(), person.getBirthday());
-    }
-
     public Person(String fullName, LocalDate birthDate) {
         setFullName(fullName);
         this.birthday = birthDate;
@@ -100,11 +96,6 @@ public class Person {
         return middleName != null;
     }
 
-    public boolean hasLastName() {
-        return lastName != null;
-    }
-
-    @Override
     public String toString() {
         return "Person{\n" +
                 "firstName: " + firstName + "\n" +
@@ -112,6 +103,4 @@ public class Person {
                 "lastName: " + lastName + "\n" +
                 "}";
     }
-
-
 }

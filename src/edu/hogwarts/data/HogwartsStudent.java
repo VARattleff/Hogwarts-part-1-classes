@@ -1,14 +1,13 @@
 package src.edu.hogwarts.data;
 
 import src.edu.generic.Student;
-
 import java.time.LocalDate;
 
 public class HogwartsStudent extends Student implements HogwartsPerson  {
 
-    private House house;
-    private boolean prefect;
-    private String[] teams;
+    private final House house;
+    private final boolean prefect;
+    private final String[] teams;
 
     public HogwartsStudent(House house, boolean prefect, String[] teams, int enrollmentYear, int graduationYear, boolean graduated, String fullName, LocalDate birthday){
         super(enrollmentYear, graduationYear, graduated, fullName, birthday);
@@ -17,34 +16,13 @@ public class HogwartsStudent extends Student implements HogwartsPerson  {
         this.teams = teams;
     }
 
-    public HogwartsStudent(){
-        super();
-        this.teams = new String[0];
-        this.house = new House();
-    }
-
     public House getHouse() {
         return house;
     }
 
-    public void setHouse(House house) {
-        this.house = house;
-    }
 
     public boolean isPrefect() {
         return prefect;
-    }
-
-    public void setPrefect(boolean prefect) {
-        this.prefect = prefect;
-    }
-
-    public String[] getTeams() {
-        return teams;
-    }
-
-    public void setTeams(String[] teams) {
-        this.teams = teams;
     }
 
     public String toString() {
@@ -53,18 +31,12 @@ public class HogwartsStudent extends Student implements HogwartsPerson  {
             for (String team : teams) {
                 teamString.append(team).append(", ");
             }
-            teamString.replace(teamString.lastIndexOf(", "), teamString.length() - 1, ".");
+            teamString.replace(teamString.lastIndexOf(", "), teamString.length(), ".");
         }
-        return "src.edu.hogwarts.data.HogwartsStudent{\n" +
-                " fullName: " + getFullName() + "\n" +
-                " employment: " + getEmployment() + "\n" +
-                " enrollmentYear: " + getEnrollmentYear() + "\n" +
-                " graduationYear: " + getGraduationYear() + "\n" +
-                " graduated: " + isGraduated() + "\n" +
-                " house: " + house.toString() + "\n" +
-                " prefect: " + prefect + "\n" +
-                " teams: " + teamString + "\n" +
-                "}";
+        return String.format("%s\tStudent\t-\t-\t%s\t%s\t%s",
+                getFullName(),
+                getHouse(),
+                isPrefect(),
+                teamString);
     }
-
 }

@@ -15,14 +15,12 @@ import java.time.format.DateTimeParseException;
 
 public class UserInterface {
 
-    private StudentController studentController;
-    private TeacherController teacherController;
-    private Scanner scanner;
+    private final StudentController studentController;
+    private final TeacherController teacherController;
 
     public UserInterface(StudentController studentController, TeacherController teacherController) {
         this.studentController = studentController;
         this.teacherController = teacherController;
-        this.scanner = new Scanner(System.in);
     }
 
     public void createStudent() {
@@ -32,13 +30,7 @@ public class UserInterface {
         String houseString = scanner.nextLine().toUpperCase();
         HouseOrigin houseOrigin = HouseOrigin.valueOf(houseString);
 
-        if (houseOrigin == null) {
-            System.out.println("Invalid house. Please choose again.");
-            createStudent();
-            return;
-        }
-
-        House house = null;
+        House house ;
         switch (houseOrigin) {
             case GRYFFINDOR:
                 house = House.getGryffindor();
@@ -101,13 +93,7 @@ public class UserInterface {
         String houseString = scanner.nextLine().toUpperCase();
         HouseOrigin houseOrigin = HouseOrigin.valueOf(houseString);
 
-        if (houseOrigin == null) {
-            System.out.println("Invalid house. Please choose again.");
-            createTeacher();
-            return;
-        }
-
-        House house = null;
+        House house ;
         switch (houseOrigin) {
             case GRYFFINDOR:
                 house = House.getGryffindor();
@@ -152,7 +138,6 @@ public class UserInterface {
                 System.out.println("Invalid date format. Please enter the date in yyyy-mm-dd format.");
             }
         }
-
         HogwartsTeacher teacher = new HogwartsTeacher(house, isHead, startDate, endDate, fullName, birthdate);
         System.out.println("Teacher created: " + teacher);
     }
@@ -160,30 +145,47 @@ public class UserInterface {
 
     public void viewStudent() {
         ArrayList<HogwartsStudent> allStudents = studentController.getAll();
+        System.out.println("┌─────────────────────────────────────────────────────────────────────────────────────────────────────");
+        System.out.println("│ Full Name                      │ Employment │ Enrollment   │ Graduation   │ Graduated │ House     ");
+        System.out.println("├─────────────────────────────────────────────────────────────────────────────────────────────────────");
         for (HogwartsStudent student : allStudents) {
-            System.out.println(student);
+            System.out.printf("│ %-30s │ %-10s │ %-12d │ %-12d │ %-9b │ %-9s  \n",
+                    student.getFullName(), student.getEmployment(), student.getEnrollmentYear(),
+                    student.getGraduationYear(), student.isGraduated(), student.getHouse().getName());
         }
+        System.out.println("└─────────────────────────────────────────────────────────────────────────────────────────────────────");
     }
 
     public void viewTeacher() {
         ArrayList<HogwartsTeacher> allTeachers = teacherController.getAll();
+
+        System.out.println("┌──────────────────────────────────────────────────────────────────────────────────────────────────────────────── ");
+        System.out.println("│ Full Name                      │ Employment │ Employment Start│ Employment End  │ House      │ Head of House ");
+        System.out.println("├────────────────────────────────────────────────────────────────────────────────────────────────────────────────");
         for (HogwartsTeacher teacher : allTeachers) {
-            System.out.println(teacher);
+            System.out.printf("│ %-30s │ %-10s │ %-15s │ %-15s │ %-9s │ %-12b \n",
+                    teacher.getFullName(), teacher.getEmployment(), teacher.getEmploymentStart(),
+                    teacher.getEmploymentEnd(), teacher.getHouse().getName(), teacher.isHeadOfHouse());
         }
+        System.out.println("└────────────────────────────────────────────────────────────────────────────────────────────────────────────────");
     }
 
     public void viewAll() {
-        System.out.println("Viewing all students:");
         ArrayList<HogwartsStudent> allStudents = studentController.getAll();
-        for (HogwartsStudent student : allStudents) {
-            System.out.println(student);
-        }
-
-        System.out.println("\nViewing all teachers:");
         ArrayList<HogwartsTeacher> allTeachers = teacherController.getAll();
-        for (HogwartsTeacher teacher : allTeachers) {
-            System.out.println(teacher);
-        }
-    }
 
+        System.out.println("┌───────────────────────────────────────────────────────────────────");
+        System.out.println("│ Full Name                      │ Age  │ House     │ Employment ");
+        System.out.println("├───────────────────────────────────────────────────────────────────");
+        for (HogwartsStudent student : allStudents) {
+            System.out.printf("│ %-30s │ %-4d │ %-6s │ %-10s \n",
+                    student.getFullName(), student.getAge(), student.getHouse().getName(), student.getEmployment());
+        }
+        for (HogwartsTeacher teacher : allTeachers) {
+            System.out.printf("│ %-30s │ %-4d │ %-6s │ %-10s \n",
+                    teacher.getFullName(), teacher.getAge(), teacher.getHouse().getName(), teacher.getEmployment());
+
+        }
+        System.out.println("└───────────────────────────────────────────────────────────────────");
+    }
 }

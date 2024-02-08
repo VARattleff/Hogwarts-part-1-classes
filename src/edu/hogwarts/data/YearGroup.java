@@ -1,7 +1,6 @@
 package src.edu.hogwarts.data;
 
 import src.edu.generic.Student;
-
 import java.time.LocalDate;
 import java.util.Arrays;
 

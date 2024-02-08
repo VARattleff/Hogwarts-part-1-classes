@@ -13,7 +13,4 @@ public abstract class Controller<T> {
 
     public abstract ArrayList<T> getAll();
 
-    public abstract void update(UUID id, T entity);
-
-    public abstract void delete(UUID id);
 }

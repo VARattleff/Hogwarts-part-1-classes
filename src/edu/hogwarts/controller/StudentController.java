@@ -1,7 +1,6 @@
 package src.edu.hogwarts.controller;
 
 import src.edu.hogwarts.data.HogwartsStudent;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.UUID;
@@ -25,27 +24,9 @@ public class StudentController extends Controller<HogwartsStudent>  {
         students.put(student.getId(), student);
     }
 
-    public void add(HogwartsStudent... students) {
+    public void add(HogwartsStudent[] students) {
         for (var student : students) {
             add(student);
         }
-    }
-
-    public void update(UUID id, HogwartsStudent student) {
-        var oldStudent = get(id);
-        assert oldStudent != null;
-        oldStudent.setFullName(student.getFullName());
-        oldStudent.setBirthday(student.getBirthday());
-        oldStudent.setHouse(student.getHouse());
-        oldStudent.setPrefect(student.isPrefect());
-        oldStudent.setTeams(student.getTeams());
-        oldStudent.setEnrollmentYear(student.getEnrollmentYear());
-        oldStudent.setGraduationYear(student.getGraduationYear());
-        oldStudent.setGraduated(student.isGraduated());
-
-    }
-
-    public void delete(UUID id) {
-        students.remove(id);
     }
 }

@@ -2,7 +2,6 @@ package src.edu.hogwarts.data.course;
 
 import src.edu.generic.Student;
 import src.edu.generic.Teacher;
-
 import java.util.Arrays;
 
 public class Course {

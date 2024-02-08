@@ -3,9 +3,7 @@ package src.edu.hogwarts.data.course;
 public class Ingredient extends TeachingMaterial {
 
     private String name;
-
     private double amount;
-
     private String unit;
 
     public Ingredient(){}
