@@ -17,9 +17,10 @@ public class InitApp {
     public void initApp() {
         pageLoadStudents();
         pageLoadStaff();
-        var ui = new UserInterface();
-        ui.getStarted();
 
+        var ui = new UserInterface(studentController, teacherController);
+        MenuHandler menuHandler = new MenuHandler(ui);
+        menuHandler.introMenu();
     }
 
     public void pageLoadStudents() {

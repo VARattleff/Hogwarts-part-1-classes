@@ -49,21 +49,22 @@ public class HogwartsStudent extends Student implements HogwartsPerson  {
 
     public String toString() {
         StringBuilder teamString = new StringBuilder();
-        if(teams.length > 0){
-            for(String team : teams){
+        if (teams.length > 0) {
+            for (String team : teams) {
                 teamString.append(team).append(", ");
             }
-            teamString.replace(teamString.lastIndexOf(", "), teamString.length()-1, ".");
+            teamString.replace(teamString.lastIndexOf(", "), teamString.length() - 1, ".");
         }
-        return  "src.edu.hogwarts.data.HogwartsStudent{\n" +
+        return "src.edu.hogwarts.data.HogwartsStudent{\n" +
                 " fullName: " + getFullName() + "\n" +
                 " employment: " + getEmployment() + "\n" +
                 " enrollmentYear: " + getEnrollmentYear() + "\n" +
                 " graduationYear: " + getGraduationYear() + "\n" +
                 " graduated: " + isGraduated() + "\n" +
-                " house: " + house.getName() + "\n" +
+                " house: " + house.toString() + "\n" +
                 " prefect: " + prefect + "\n" +
                 " teams: " + teamString + "\n" +
                 "}";
     }
+
 }

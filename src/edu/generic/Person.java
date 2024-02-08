@@ -3,7 +3,6 @@ package src.edu.generic;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.UUID;
-
 public class Person {
     private String firstName;
     private String lastName;

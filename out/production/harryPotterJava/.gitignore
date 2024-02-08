@@ -30,4 +30,8 @@ replay_pid*
 # IntelliJ IDEA files
 .idea/
 
+.DS_STORE
+
+/out
+
 harryPotterJava.iml
