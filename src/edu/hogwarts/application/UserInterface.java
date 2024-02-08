@@ -1,4 +1,3 @@
-// UserInterface.java
 package src.edu.hogwarts.application;
 
 import src.edu.generic.Person;

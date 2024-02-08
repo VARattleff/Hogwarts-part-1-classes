@@ -17,10 +17,9 @@ public class MenuHandler {
                 Welcome to the administrative system.
                 We are pleased to welcome you and look forward to collaborating with you.
                 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-                
+
                 1. Create
                 2. View Student or Teachers
-                
                 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
                 """);
 
@@ -45,6 +44,7 @@ public class MenuHandler {
                 Choose what you want to create:
                 1. Student
                 2. Teacher
+                3. Back
                 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
                 """);
 
@@ -55,6 +55,9 @@ public class MenuHandler {
                 break;
             case 2:
                 userInterface.createTeacher();
+                break;
+            case 3:
+                introMenu();
                 break;
             default:
                 System.out.println("Invalid choice. Please choose again.");
@@ -70,6 +73,7 @@ public class MenuHandler {
                 1. View Student
                 2. View Teacher
                 3. View All
+                4. Back
                 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
                 """);
 
@@ -83,6 +87,9 @@ public class MenuHandler {
                 break;
             case 3:
                 userInterface.viewAll();
+                break;
+            case 4:
+                createMenu();
                 break;
             default:
                 System.out.println("Invalid choice. Please choose again.");
