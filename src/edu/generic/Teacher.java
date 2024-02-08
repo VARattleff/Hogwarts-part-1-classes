@@ -1,19 +1,20 @@
-package edu.generic;
+package src.edu.generic;
 
-import edu.generic.Person;
+import src.edu.hogwarts.data.empType;
 
 import java.time.LocalDate;
 
 public class Teacher extends Person {
 
-    private empType employment;
+    private empType employment = empType.TEACHER;
     private LocalDate employmentStart;
     private LocalDate employmentEnd;
 
-    public Teacher(){}
-    public Teacher(empType employment, LocalDate employmentStart, LocalDate employmentEnd, String fullName ){
-        super(fullName);
-        this.employment = employment;
+    public Teacher(){
+        super();
+    }
+    public Teacher(LocalDate employmentStart, LocalDate employmentEnd, String fullName, LocalDate birthday ){
+        super(fullName, birthday);
         this.employmentStart = employmentStart;
         this.employmentEnd = employmentEnd;
 
@@ -43,7 +44,7 @@ public class Teacher extends Person {
     }
 
     public String toString() {
-        return "edu.generic.Teacher{\n" +
+        return "src.edu.generic.Teacher{\n" +
                 "fullName: " + getFullName() + "\n" +
                 "employment: " + employment + "\n" +
                 "employmentStart: " + employmentStart + "\n" +

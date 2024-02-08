@@ -1,6 +1,8 @@
-package edu.hogwarts.data;
+package src.edu.hogwarts.data;
 
-import edu.generic.Student;
+import src.edu.generic.Student;
+
+import java.time.LocalDate;
 
 public class HogwartsStudent extends Student implements HogwartsPerson  {
 
@@ -8,8 +10,8 @@ public class HogwartsStudent extends Student implements HogwartsPerson  {
     private boolean prefect;
     private String[] teams;
 
-    public HogwartsStudent(House house, boolean prefect, String[] teams, int enrollmentYear, int graduationYear, boolean graduated, String fullName){
-        super(enrollmentYear, graduationYear, graduated, fullName);
+    public HogwartsStudent(House house, boolean prefect, String[] teams, int enrollmentYear, int graduationYear, boolean graduated, String fullName, LocalDate birthday){
+        super(enrollmentYear, graduationYear, graduated, fullName, birthday);
         this.house = house;
         this.prefect = prefect;
         this.teams = teams;
@@ -53,7 +55,7 @@ public class HogwartsStudent extends Student implements HogwartsPerson  {
             }
             teamString.replace(teamString.lastIndexOf(", "), teamString.length()-1, ".");
         }
-        return  "edu.hogwarts.data.HogwartsStudent{\n" +
+        return  "src.edu.hogwarts.data.HogwartsStudent{\n" +
                 " fullName: " + getFullName() + "\n" +
                 " enrollmentYear: " + getEnrollmentYear() + "\n" +
                 " graduationYear: " + getGraduationYear() + "\n" +

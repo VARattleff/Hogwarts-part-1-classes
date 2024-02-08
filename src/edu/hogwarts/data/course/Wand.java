@@ -1,6 +1,8 @@
-package edu.hogwarts.data;
+package src.edu.hogwarts.data.course;
 
-public class Wand extends TeachingMaterial{
+import src.edu.hogwarts.data.course.TeachingMaterial;
+
+public class Wand extends TeachingMaterial {
 
     private double lengthInInches;
     private String wood;
@@ -45,7 +47,7 @@ public class Wand extends TeachingMaterial{
     }
 
     public String toString() {
-        return "edu.hogwarts.data.Wand{" +
+        return "src.edu.hogwarts.data.course.Wand{" +
                 "lengthInInches=" + lengthInInches +
                 ", wood='" + wood + '\'' +
                 ", core='" + core + '\'' +

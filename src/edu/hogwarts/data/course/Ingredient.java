@@ -1,6 +1,6 @@
-package edu.hogwarts.data;
+package src.edu.hogwarts.data.course;
 
-public class Ingredient extends TeachingMaterial{
+public class Ingredient extends TeachingMaterial {
 
     private String name;
 
@@ -47,7 +47,7 @@ public class Ingredient extends TeachingMaterial{
     }
 
     public String toString() {
-        return "edu.hogwarts.data.Ingredient{" +
+        return "src.edu.hogwarts.data.course.Ingredient{" +
                 "name='" + name + '\'' +
                 ", amount=" + amount +
                 ", unit='" + unit + '\'' +

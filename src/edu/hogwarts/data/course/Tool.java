@@ -1,6 +1,8 @@
-package edu.hogwarts.data;
+package src.edu.hogwarts.data.course;
 
-public class Tool extends TeachingMaterial{
+import src.edu.hogwarts.data.course.TeachingMaterial;
+
+public class Tool extends TeachingMaterial {
 
     private String name;
 
@@ -35,7 +37,7 @@ public class Tool extends TeachingMaterial{
     }
 
     public String toString() {
-        return "edu.hogwarts.data.Tool{" +
+        return "src.edu.hogwarts.data.course.Tool{" +
                 "name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 '}';

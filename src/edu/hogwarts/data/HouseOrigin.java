@@ -1,4 +1,4 @@
-package edu.hogwarts.data;
+package src.edu.hogwarts.data;
 
 public enum HouseOrigin {
     GRYFFINDOR,

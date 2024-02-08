@@ -1,6 +1,6 @@
-package edu.hogwarts.data;
+package src.edu.hogwarts.data;
 
-import edu.generic.Student;
+import src.edu.generic.Student;
 
 import java.time.LocalDate;
 import java.util.Arrays;
@@ -46,7 +46,7 @@ public class YearGroup {
     }
 
     public String toString() {
-        return "edu.hogwarts.data.YearGroup{" +
+        return "src.edu.hogwarts.data.YearGroup{" +
                 "schoolYear=" + schoolYear +
                 ", beginningOfSchoolYear=" + beginningOfSchoolYear +
                 ", students=" + Arrays.toString(students) +

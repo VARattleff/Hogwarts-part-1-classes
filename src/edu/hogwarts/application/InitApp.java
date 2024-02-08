@@ -1,14 +1,33 @@
-package edu.hogwarts.application;
-import edu.hogwarts.data.HogwartsStudent;
+package src.edu.hogwarts.application;
+import src.edu.hogwarts.controller.StudentController;
+import src.edu.hogwarts.controller.TeacherController;
+import src.edu.hogwarts.data.HogwartsStudent;
 import java.time.LocalDate;
-import edu.hogwarts.data.House;
+import java.util.Arrays;
+
+import src.edu.hogwarts.data.House;
+import src.edu.hogwarts.data.HogwartsTeacher;
+
 
 public class InitApp {
 
+    private final StudentController studentController = new StudentController();
+    private final TeacherController teacherController = new TeacherController();
+
+    public void initApp() {
+        pageLoadStudents();
+        pageLoadStaff();
+
+
+     //   var ui = new UserInterface(studentController, teacherController);
+      //   ui.start();
+
+    }
 
     public void pageLoadStudents() {
         // gryffindor
         var harry = new HogwartsStudent(House.getGryffindor(), false, new String[]{"Quidditch"}, 1991, 1998, false, "Harry James Potter", LocalDate.of(1980, 7, 31));
+
         var ron = new HogwartsStudent(House.getGryffindor(), false, new String[]{"Quidditch", "Wizard Chess"}, 1991, 1998, false, "Ronald Bilius Weasley", LocalDate.of(1980, 3, 1));
 
         // hufflepuff
@@ -24,6 +43,7 @@ public class InitApp {
 
         var students = new HogwartsStudent[]{harry, ron, hannah, susan, amanda, terry, draco, vincent};
         studentController.add(students);
+        System.out.println(Arrays.toString(students));
     }
 
     public void pageLoadStaff() {
@@ -36,6 +56,7 @@ public class InitApp {
 
         var staff = new HogwartsTeacher[]{dumbledore, mcGonagall, sprout, flitwick, snape};
         teacherController.add(staff);
+        System.out.println(Arrays.toString(staff));
 
     }
 }

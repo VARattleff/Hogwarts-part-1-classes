@@ -1,13 +1,17 @@
-package edu.generic;
+package src.edu.generic;
+
+import java.time.LocalDate;
 
 public class Student extends Person {
     private int enrollmentYear;
     private int graduationYear;
     private  boolean graduated;
 
-    public Student(){}
-    public Student(int enrollmentYear, int graduationYear, boolean graduated, String fullName) {
-        super(fullName);
+    public Student(){
+        super();
+    }
+    public Student(int enrollmentYear, int graduationYear, boolean graduated, String fullName, LocalDate birthday) {
+        super(fullName, birthday);
         this.enrollmentYear = enrollmentYear;
         this.graduationYear = graduationYear;
         this.graduated = graduated;
@@ -37,7 +41,7 @@ public class Student extends Person {
     }
 
     public String toString() {
-        return "edu.generic.Student{\n" +
+        return "src.edu.generic.Student{\n" +
                 "fullName" + getFullName() + "\n" +
                 "enrollmentYear: " + enrollmentYear + "\n" +
                 "graduationYear: " + graduationYear + "\n" +

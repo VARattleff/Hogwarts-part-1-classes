@@ -1,4 +1,4 @@
-package edu.hogwarts.data;
+package src.edu.hogwarts.data.course;
 
 public class TextBook extends TeachingMaterial{
 
@@ -57,7 +57,7 @@ public class TextBook extends TeachingMaterial{
     }
 
     public String toString() {
-        return "edu.hogwarts.data.TextBook{" +
+        return "src.edu.hogwarts.data.course.TextBook{" +
                 "title='" + title + '\'' +
                 ", author='" + author + '\'' +
                 ", publisher='" + publisher + '\'' +

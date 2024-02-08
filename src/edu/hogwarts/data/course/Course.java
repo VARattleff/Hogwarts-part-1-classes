@@ -1,7 +1,7 @@
-package edu.hogwarts.data;
+package src.edu.hogwarts.data.course;
 
-import edu.generic.Student;
-import edu.generic.Teacher;
+import src.edu.generic.Student;
+import src.edu.generic.Teacher;
 
 import java.util.Arrays;
 
@@ -52,7 +52,7 @@ public class Course {
     }
 
     public String toString() {
-        return "edu.hogwarts.data.Course{" +
+        return "src.edu.hogwarts.data.course.Course{" +
                 "subject=" + subject +
                 ", teacher=" + teacher +
                 ", students=" + Arrays.toString(students) +

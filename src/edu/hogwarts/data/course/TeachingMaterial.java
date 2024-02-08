@@ -1,6 +1,6 @@
-package edu.hogwarts.data;
+package src.edu.hogwarts.data.course;
 
-import edu.hogwarts.data.Course;
+import src.edu.hogwarts.data.course.Course;
 
 public abstract class TeachingMaterial extends Course {
 
@@ -60,7 +60,7 @@ public abstract class TeachingMaterial extends Course {
     }
 
     public String toString() {
-        return "edu.hogwarts.data.TeachingMaterial{" +
+        return "src.edu.hogwarts.data.course.TeachingMaterial{" +
                 "name='" + name + '\'' +
                 ", onShoppingList=" + onShoppingList +
                 ", required=" + required +

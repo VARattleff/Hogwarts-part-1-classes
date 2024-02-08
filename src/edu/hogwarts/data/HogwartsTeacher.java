@@ -1,7 +1,6 @@
-package edu.hogwarts.data;
+package src.edu.hogwarts.data;
 
-import edu.generic.Teacher;
-import edu.generic.empType;
+import src.edu.generic.Teacher;
 
 import java.time.LocalDate;
 
@@ -17,12 +16,11 @@ public class HogwartsTeacher extends Teacher implements HogwartsPerson {
         this.headOfHouse = headOfHouse;
     }
 
-    public HogwartsTeacher(empType employment, LocalDate employmentStart, LocalDate employmentEnd, String fullName, House house, boolean headOfHouse) {
-        super(employment, employmentStart, employmentEnd, fullName);
+    public HogwartsTeacher(House house, boolean headOfHouse, LocalDate employmentStart, LocalDate employmentEnd, String fullName, LocalDate birthDate) {
+        super(employmentStart, employmentEnd, fullName, birthDate);
         this.house = house;
         this.headOfHouse = headOfHouse;
     }
-
     public House getHouse() {
         return house;
     }
@@ -40,7 +38,7 @@ public class HogwartsTeacher extends Teacher implements HogwartsPerson {
     }
 
     public String toString() {
-        return "edu.hogwarts.data.HogwartsTeacher{\n" +
+        return "src.edu.hogwarts.data.HogwartsTeacher{\n" +
                 " fullName: " + getFullName() + "\n" +
                 " employment: " + getEmployment() + "\n" +
                 " employmentStart: " + getEmploymentStart() + "\n" +
