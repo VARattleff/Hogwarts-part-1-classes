@@ -15,8 +15,6 @@ public class MenuHandler {
 
     public void introMenu() {
         System.out.println("""
-                Welcome to the administrative system.
-                We are pleased to welcome you and look forward to collaborating with you.
                 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
                 1. Create
