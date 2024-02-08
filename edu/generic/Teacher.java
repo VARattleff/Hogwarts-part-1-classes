@@ -1,3 +1,7 @@
+package edu.generic;
+
+import edu.generic.Person;
+
 import java.time.LocalDate;
 
 public class Teacher extends Person {
@@ -39,7 +43,7 @@ public class Teacher extends Person {
     }
 
     public String toString() {
-        return "Teacher{\n" +
+        return "edu.generic.Teacher{\n" +
                 "fullName: " + getFullName() + "\n" +
                 "employment: " + employment + "\n" +
                 "employmentStart: " + employmentStart + "\n" +

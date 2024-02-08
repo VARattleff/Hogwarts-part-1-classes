@@ -1,3 +1,8 @@
+package edu.hogwarts.application;
+
+import edu.generic.empType;
+import edu.hogwarts.data.*;
+
 import java.time.LocalDate;
 
 public class Application {
@@ -138,7 +143,7 @@ public class Application {
         textBook.setProvided(true);
         textBook.setRequired(true);
 
-        wand.setName("Wand");
+        wand.setName("edu.hogwarts.data.Wand");
         wand.setCore("Phoenix feather");
         wand.setWood("Holly");
         wand.setNotes("The wand chooses the wizard.");

@@ -1,3 +1,7 @@
+package edu.hogwarts.data;
+
+import edu.generic.Student;
+
 public class HogwartsStudent extends Student implements HogwartsPerson  {
 
     private House house;
@@ -49,7 +53,7 @@ public class HogwartsStudent extends Student implements HogwartsPerson  {
             }
             teamString.replace(teamString.lastIndexOf(", "), teamString.length()-1, ".");
         }
-        return  "HogwartsStudent{\n" +
+        return  "edu.hogwarts.data.HogwartsStudent{\n" +
                 " fullName: " + getFullName() + "\n" +
                 " enrollmentYear: " + getEnrollmentYear() + "\n" +
                 " graduationYear: " + getGraduationYear() + "\n" +

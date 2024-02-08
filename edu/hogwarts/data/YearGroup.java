@@ -1,20 +1,19 @@
+package edu.hogwarts.data;
+
+import edu.generic.Student;
+
 import java.time.LocalDate;
 import java.util.Arrays;
 
-public class YearGroup extends HogwartsStudent{
+public class YearGroup {
 
     private int schoolYear;
+
     private LocalDate beginningOfSchoolYear;
 
     private Student[] students;
 
     public YearGroup(){}
-    public YearGroup(House house, boolean prefect, String[] teams, int enrollmentYear, int graduationYear, boolean graduated, String fullName, int schoolYear, LocalDate beginningOfSchoolYear, Student[] students) {
-        super(house, prefect, teams, enrollmentYear, graduationYear, graduated, fullName);
-        this.schoolYear = schoolYear;
-        this.beginningOfSchoolYear = beginningOfSchoolYear;
-        this.students = students;
-    }
 
     public YearGroup(int schoolYear, LocalDate beginningOfSchoolYear, Student[] students) {
         this.schoolYear = schoolYear;
@@ -47,7 +46,7 @@ public class YearGroup extends HogwartsStudent{
     }
 
     public String toString() {
-        return "YearGroup{" +
+        return "edu.hogwarts.data.YearGroup{" +
                 "schoolYear=" + schoolYear +
                 ", beginningOfSchoolYear=" + beginningOfSchoolYear +
                 ", students=" + Arrays.toString(students) +

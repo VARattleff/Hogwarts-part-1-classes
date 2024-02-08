@@ -1,7 +1,21 @@
+package edu.generic;
+
+import java.time.LocalDate;
+
 public class Person {
     private String firstName;
     private String middleName;
     private String lastName;
+
+    public LocalDate getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(LocalDate birthday) {
+        this.birthday = birthday;
+    }
+
+    private LocalDate birthday;
     public Person(String firstName, String lastName) {
         this(firstName, null, lastName);
     }

@@ -1,3 +1,5 @@
+package edu.generic;
+
 public class Student extends Person {
     private int enrollmentYear;
     private int graduationYear;
@@ -35,7 +37,7 @@ public class Student extends Person {
     }
 
     public String toString() {
-        return "Student{\n" +
+        return "edu.generic.Student{\n" +
                 "fullName" + getFullName() + "\n" +
                 "enrollmentYear: " + enrollmentYear + "\n" +
                 "graduationYear: " + graduationYear + "\n" +

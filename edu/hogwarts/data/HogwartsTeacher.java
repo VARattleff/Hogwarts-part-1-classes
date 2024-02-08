@@ -1,3 +1,8 @@
+package edu.hogwarts.data;
+
+import edu.generic.Teacher;
+import edu.generic.empType;
+
 import java.time.LocalDate;
 
 public class HogwartsTeacher extends Teacher implements HogwartsPerson {
@@ -35,7 +40,7 @@ public class HogwartsTeacher extends Teacher implements HogwartsPerson {
     }
 
     public String toString() {
-        return "HogwartsTeacher{\n" +
+        return "edu.hogwarts.data.HogwartsTeacher{\n" +
                 " fullName: " + getFullName() + "\n" +
                 " employment: " + getEmployment() + "\n" +
                 " employmentStart: " + getEmploymentStart() + "\n" +

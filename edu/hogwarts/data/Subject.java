@@ -1,3 +1,5 @@
+package edu.hogwarts.data;
+
 public class Subject {
     private String name;
     private int schoolYear;
@@ -34,7 +36,7 @@ public class Subject {
     }
 
     public String toString() {
-        return "Subject{" +
+        return "edu.hogwarts.data.Subject{" +
                 "name='" + name + '\'' +
                 ", schoolYear=" + schoolYear +
                 ", elective=" + elective +
