@@ -5,6 +5,7 @@ import src.edu.generic.Person;
 import src.edu.hogwarts.controller.StudentController;
 import src.edu.hogwarts.controller.TeacherController;
 
+import src.edu.hogwarts.data.HogwartsTeacher;
 import src.edu.hogwarts.data.House;
 import src.edu.hogwarts.data.HogwartsStudent;
 import java.time.LocalDate;
@@ -82,7 +83,7 @@ public class UserInterface {
         boolean validDate = false;
         while (!validDate) {
             try {
-                System.out.println("Enter student birthdate (yyyy-mm-dd): ");
+                System.out.println("Enter Teacher birthdate (yyyy-mm-dd): ");
                 birthdate = LocalDate.parse(scanner.next());
                 validDate = true;
             } catch (DateTimeParseException e) {
@@ -94,12 +95,69 @@ public class UserInterface {
         System.out.println("Student created: " + student);
     }
 
-
-
     public void createTeacher() {
-        // Implementer logik for oprettelse af en lærer
-        System.out.println("Creating a teacher...");
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Enter house (GRYFFINDOR, HUFFLEPUFF, RAVENCLAW, SLYTHERIN): ");
+        String houseString = scanner.nextLine().toUpperCase();
+        HouseOrigin houseOrigin = HouseOrigin.valueOf(houseString);
+
+        if (houseOrigin == null) {
+            System.out.println("Invalid house. Please choose again.");
+            createTeacher();
+            return;
+        }
+
+        House house = null;
+        switch (houseOrigin) {
+            case GRYFFINDOR:
+                house = House.getGryffindor();
+                break;
+            case HUFFLEPUFF:
+                house = House.getHufflepuff();
+                break;
+            case RAVENCLAW:
+                house = House.getRavenclaw();
+                break;
+            case SLYTHERIN:
+                house = House.getSlytherin();
+                break;
+            default:
+                System.out.println("Invalid house. Please choose again.");
+                createTeacher();
+                return;
+        }
+
+        System.out.println("Enter if teacher is a head (true/false): ");
+        boolean isHead = scanner.nextBoolean();
+
+        System.out.println("Enter start date (yyyy-mm-dd): ");
+        LocalDate startDate = LocalDate.parse(scanner.next());
+
+        System.out.println("Enter end date (yyyy-mm-dd): ");
+        LocalDate endDate = LocalDate.parse(scanner.next());
+
+        System.out.println("Enter teacher name: ");
+        String fullName = scanner.next();
+        Person person = new Person();
+        person.setFullName(fullName);
+
+        LocalDate birthdate = null;
+        boolean validDate = false;
+        while (!validDate) {
+            try {
+                System.out.println("Enter student birthdate (yyyy-mm-dd): ");
+                birthdate = LocalDate.parse(scanner.next());
+                validDate = true;
+            } catch (DateTimeParseException e) {
+                System.out.println("Invalid date format. Please enter the date in yyyy-mm-dd format.");
+            }
+        }
+
+        HogwartsTeacher teacher = new HogwartsTeacher(house, isHead, startDate, endDate, fullName, birthdate);
+        System.out.println("Teacher created: " + teacher);
     }
+
 
     public void viewStudent() {
         ArrayList<HogwartsStudent> allStudents = studentController.getAll();
@@ -108,15 +166,25 @@ public class UserInterface {
         }
     }
 
-
-
     public void viewTeacher() {
-        // Implementer logik for visning af en lærer
-        System.out.println("Viewing teachers...");
+        ArrayList<HogwartsTeacher> allTeachers = teacherController.getAll();
+        for (HogwartsTeacher teacher : allTeachers) {
+            System.out.println(teacher);
+        }
     }
 
     public void viewAll() {
-        // Implementer logik for visning af alle studerende og lærere
-        System.out.println("Viewing all...");
+        System.out.println("Viewing all students:");
+        ArrayList<HogwartsStudent> allStudents = studentController.getAll();
+        for (HogwartsStudent student : allStudents) {
+            System.out.println(student);
+        }
+
+        System.out.println("\nViewing all teachers:");
+        ArrayList<HogwartsTeacher> allTeachers = teacherController.getAll();
+        for (HogwartsTeacher teacher : allTeachers) {
+            System.out.println(teacher);
+        }
     }
+
 }

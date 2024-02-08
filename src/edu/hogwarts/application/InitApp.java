@@ -3,7 +3,6 @@ import src.edu.hogwarts.controller.StudentController;
 import src.edu.hogwarts.controller.TeacherController;
 import src.edu.hogwarts.data.HogwartsStudent;
 import java.time.LocalDate;
-import java.util.Arrays;
 
 import src.edu.hogwarts.data.House;
 import src.edu.hogwarts.data.HogwartsTeacher;
@@ -26,16 +25,13 @@ public class InitApp {
     public void pageLoadStudents() {
         // gryffindor
         var harry = new HogwartsStudent(House.getGryffindor(), false, new String[]{"Quidditch"}, 1991, 1998, false, "Harry James Potter", LocalDate.of(1980, 7, 31));
-
         var ron = new HogwartsStudent(House.getGryffindor(), false, new String[]{"Quidditch", "Wizard Chess"}, 1991, 1998, false, "Ronald Bilius Weasley", LocalDate.of(1980, 3, 1));
-
         // hufflepuff
         var hannah = new HogwartsStudent(House.getHufflepuff(), false, new String[]{"Herbology"}, 1991, 1998, false, "Hannah Abbott", LocalDate.of(1980, 3, 1));
         var susan = new HogwartsStudent(House.getHufflepuff(), false, new String[]{"Herbology"}, 1991, 1998, false, "Susan Bones", LocalDate.of(1980, 3, 1));
         // ravenclaw
         var amanda = new HogwartsStudent(House.getRavenclaw(), false, new String[]{"Quidditch"}, 1991, 1998, true, "Amanda", LocalDate.of(1980, 3, 1));
         var terry = new HogwartsStudent(House.getRavenclaw(), false, new String[]{"Quidditch"}, 1991, 1998, true, "Terry Boot", LocalDate.of(1980, 3, 1));
-
         // slytherin
         var draco = new HogwartsStudent(House.getSlytherin(), false, new String[]{"Quidditch", "Wizard Chess", "Duelling Club"}, 1991, 1998, true, "Draco Malfoy", LocalDate.of(1980, 3, 1));
         var vincent = new HogwartsStudent(House.getSlytherin(), false, new String[]{"Quidditch", "Wizard Chess", "Duelling Club"}, 1991, 1998, true, "Vincent Crabbe", LocalDate.of(1980, 3, 1));

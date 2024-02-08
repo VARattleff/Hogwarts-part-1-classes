@@ -1,14 +1,11 @@
 package src.edu.hogwarts.application;
 
-import src.edu.hogwarts.controller.StudentController;
-import src.edu.hogwarts.controller.TeacherController;
-
 import java.util.Scanner;
 
 public class MenuHandler {
 
-    private Scanner scanner;
-    private UserInterface userInterface;
+    private final Scanner scanner;
+    private final UserInterface userInterface;
 
     public MenuHandler(UserInterface userInterface) {
         this.userInterface = userInterface;
@@ -19,11 +16,12 @@ public class MenuHandler {
         System.out.println("""
                 Welcome to the administrative system.
                 We are pleased to welcome you and look forward to collaborating with you.
-                ______________________________________________________
+                >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
                 
                 1. Create
                 2. View Student or Teachers
-                3. View All
+                
+                >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
                 """);
 
         int choice = scanner.nextInt();
@@ -34,9 +32,6 @@ public class MenuHandler {
             case 2:
                 viewMenu();
                 break;
-            case 3:
-                viewAll();
-                break;
             default:
                 System.out.println("Invalid choice. Please choose again.");
                 introMenu();
@@ -46,10 +41,11 @@ public class MenuHandler {
 
     private void createMenu() {
         System.out.println("""
-                ______________________________________________________
+                >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
                 Choose what you want to create:
                 1. Student
                 2. Teacher
+                >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
                 """);
 
         int createChoice = scanner.nextInt();
@@ -69,11 +65,12 @@ public class MenuHandler {
 
     private void viewMenu() {
         System.out.println("""
-                ______________________________________________________
+                >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
                 Choose what you want to view:
                 1. View Student
                 2. View Teacher
                 3. View All
+                >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
                 """);
 
         int viewChoice = scanner.nextInt();
@@ -92,10 +89,5 @@ public class MenuHandler {
                 viewMenu();
                 break;
         }
-    }
-
-    private void viewAll() {
-        System.out.println("Viewing all...");
-        userInterface.viewAll();
     }
 }
