@@ -17,10 +17,8 @@ public class InitApp {
     public void initApp() {
         pageLoadStudents();
         pageLoadStaff();
-
-
-     //   var ui = new UserInterface(studentController, teacherController);
-      //   ui.start();
+        var ui = new UserInterface();
+        ui.getStarted();
 
     }
 
@@ -43,7 +41,6 @@ public class InitApp {
 
         var students = new HogwartsStudent[]{harry, ron, hannah, susan, amanda, terry, draco, vincent};
         studentController.add(students);
-        System.out.println(Arrays.toString(students));
     }
 
     public void pageLoadStaff() {
@@ -56,7 +53,5 @@ public class InitApp {
 
         var staff = new HogwartsTeacher[]{dumbledore, mcGonagall, sprout, flitwick, snape};
         teacherController.add(staff);
-        System.out.println(Arrays.toString(staff));
-
     }
 }
