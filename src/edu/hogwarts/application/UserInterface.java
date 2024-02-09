@@ -158,20 +158,17 @@ public class UserInterface {
         menuHandler.introMenu();
     }
 
-
     public void viewStudent() {
         ArrayList<HogwartsStudent> allStudents = studentController.getAll();
-        Collections.sort(allStudents, Comparator.comparing(HogwartsStudent::getFullName));
+        allStudents.sort(Comparator.comparing(HogwartsStudent::getFullName));
         printStudentsSorted(allStudents);
     }
 
-
     public void viewTeacher() {
         ArrayList<HogwartsTeacher> allTeachers = teacherController.getAll();
-        Collections.sort(allTeachers, Comparator.comparing(HogwartsTeacher::getFullName));
+        allTeachers.sort(Comparator.comparing(HogwartsTeacher::getFullName));
         printTeachersSorted(allTeachers);
     }
-
 
     public void viewAll() {
         ArrayList<HogwartsStudent> allStudents = studentController.getAll();
@@ -179,11 +176,10 @@ public class UserInterface {
         ArrayList<HogwartsPerson> allPersons = new ArrayList<>();
         allPersons.addAll(allStudents);
         allPersons.addAll(allTeachers);
-        Collections.sort(allPersons, Comparator.comparing(HogwartsPerson::getFullName));
+        allPersons.sort(Comparator.comparing(HogwartsPerson::getFullName));
         printAllSorted(allPersons);
         menuHandler.searchOrFilterAll();
     }
-
 
     public void filterStudentsByHouse(String houseName) {
         ArrayList<HogwartsStudent> allStudents = studentController.getAll();
@@ -217,7 +213,7 @@ public class UserInterface {
         if (!ascending) {
             fullNameComparator = fullNameComparator.reversed();
         }
-        Collections.sort(allStudents, fullNameComparator);
+        allStudents.sort(fullNameComparator);
         printStudentsSorted(allStudents);
     }
 
@@ -227,7 +223,7 @@ public class UserInterface {
         if (!ascending) {
             enrollmentComparator = enrollmentComparator.reversed();
         }
-        Collections.sort(allStudents, enrollmentComparator);
+        allStudents.sort(enrollmentComparator);
         printStudentsSorted(allStudents);
     }
 
@@ -237,7 +233,7 @@ public class UserInterface {
         if (!ascending) {
             graduationComparator = graduationComparator.reversed();
         }
-        Collections.sort(allStudents, graduationComparator);
+        allStudents.sort(graduationComparator);
         printStudentsSorted(allStudents);
     }
 
@@ -247,7 +243,7 @@ public class UserInterface {
         if (!ascending) {
             graduatedComparator = graduatedComparator.reversed();
         }
-        Collections.sort(allStudents, graduatedComparator);
+        allStudents.sort(graduatedComparator);
         printStudentsSorted(allStudents);
     }
 
@@ -257,7 +253,7 @@ public class UserInterface {
         if (!ascending) {
             houseComparator = houseComparator.reversed();
         }
-        Collections.sort(allStudents, houseComparator);
+        allStudents.sort(houseComparator);
         printStudentsSorted(allStudents);
     }
 
@@ -305,7 +301,7 @@ public class UserInterface {
         if (!ascending) {
             fullNameComparator = fullNameComparator.reversed();
         }
-        Collections.sort(allTeachers, fullNameComparator);
+        allTeachers.sort(fullNameComparator);
         printTeachersSorted(allTeachers);
     }
 
@@ -315,9 +311,9 @@ public class UserInterface {
         if (!ascending) {
             employmentComparator = employmentComparator.reversed();
         }
-        Collections.sort(allTeachers, employmentComparator);
+        allTeachers.sort(employmentComparator);
         printTeachersSorted(allTeachers);
-  }
+    }
 
     public void sortTeachersByEmploymentStart(boolean ascending) {
         ArrayList<HogwartsTeacher> allTeachers = teacherController.getAll();
@@ -325,7 +321,7 @@ public class UserInterface {
         if (!ascending) {
             employmentStartComparator = employmentStartComparator.reversed();
         }
-        Collections.sort(allTeachers, employmentStartComparator);
+        allTeachers.sort(employmentStartComparator);
         printTeachersSorted(allTeachers);
     }
 
@@ -335,7 +331,7 @@ public class UserInterface {
         if (!ascending) {
             employmentEndComparator = employmentEndComparator.reversed();
         }
-        Collections.sort(allTeachers, employmentEndComparator);
+        allTeachers.sort(employmentEndComparator);
         printTeachersSorted(allTeachers);
     }
 
@@ -345,7 +341,7 @@ public class UserInterface {
         if (!ascending) {
             houseComparator = houseComparator.reversed();
         }
-        Collections.sort(allTeachers, houseComparator);
+        allTeachers.sort(houseComparator);
         printTeachersSorted(allTeachers);
     }
 
@@ -364,7 +360,7 @@ public class UserInterface {
 
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>><
 
-    public void filterAllByHouse(String houseFilter) {
+    public void filterAllByHouse(String houseName) {
         ArrayList<HogwartsStudent> allStudents = studentController.getAll();
         ArrayList<HogwartsTeacher> allTeachers = teacherController.getAll();
         ArrayList<HogwartsPerson> allPersons = new ArrayList<>();
@@ -373,7 +369,7 @@ public class UserInterface {
         ArrayList<HogwartsPerson> filteredPersons = new ArrayList<>();
 
         for (HogwartsPerson person : allPersons) {
-            if (person.getHouse().getName().equals(houseFilter)) {
+            if (person.getHouse().getName().toString().equalsIgnoreCase(houseName)) {
                 filteredPersons.add(person);
             }
         }
@@ -393,7 +389,7 @@ public class UserInterface {
         if (!ascendingFullName) {
             fullNameComparator = fullNameComparator.reversed();
         }
-        Collections.sort(allPersons, fullNameComparator);
+        allPersons.sort(fullNameComparator);
         printAllSorted(allPersons);
         menuHandler.searchOrFilterAll();
     }
@@ -409,7 +405,7 @@ public class UserInterface {
         if (!ascendingAge) {
             ageComparator = ageComparator.reversed();
         }
-        Collections.sort(allPersons, ageComparator);
+        allPersons.sort(ageComparator);
         printAllSorted(allPersons);
         menuHandler.searchOrFilterAll();
     }
@@ -425,7 +421,7 @@ public class UserInterface {
         if (!ascendingHouse) {
             houseComparator = houseComparator.reversed();
         }
-        Collections.sort(allPersons, houseComparator);
+        allPersons.sort(houseComparator);
         printAllSorted(allPersons);
         menuHandler.searchOrFilterAll();
     }
@@ -441,7 +437,7 @@ public class UserInterface {
         if (!ascendingEmployment) {
             employmentComparator = employmentComparator.reversed();
         }
-        Collections.sort(allPersons, employmentComparator);
+        allPersons.sort(employmentComparator);
         printAllSorted(allPersons);
         menuHandler.searchOrFilterAll();
     }
@@ -459,11 +455,4 @@ public class UserInterface {
 
         System.out.println("└───────────────────────────────────────────────────────────────────");
     }
-
-
 }
-
-
-
-
-

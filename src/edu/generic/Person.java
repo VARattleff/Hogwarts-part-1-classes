@@ -10,20 +10,8 @@ public class Person {
     private final LocalDate birthday;
     private final UUID id;
 
-    public Person() {
-        this("Unknown", "Unknown", "Unknown", LocalDate.now());
-    }
-
     public Person(String fullName, LocalDate birthDate) {
         setFullName(fullName);
-        this.birthday = birthDate;
-        this.id = UUID.randomUUID();
-    }
-
-    public Person(String firstName, String middleName, String lastName, LocalDate birthDate) {
-        this.firstName = firstName;
-        this.middleName = middleName;
-        this.lastName = lastName;
         this.birthday = birthDate;
         this.id = UUID.randomUUID();
     }

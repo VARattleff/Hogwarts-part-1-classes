@@ -183,8 +183,6 @@ public class MenuHandler {
         }
     }
 
-
-
     public void searchOrFilterTeacher() {
         Scanner scanner = new Scanner(System.in);
 
@@ -240,7 +238,7 @@ public class MenuHandler {
                 System.out.println("2. Sort in descending order");
                 int employmentChoice = scanner.nextInt();
                 boolean ascendingEmployment = (employmentChoice == 1);
-               userInterface.sortTeachersByEmployment(ascendingEmployment);
+                userInterface.sortTeachersByEmployment(ascendingEmployment);
                 break;
             case 5:
                 System.out.println("Sort by Employment Start:");
@@ -316,11 +314,11 @@ public class MenuHandler {
                 boolean ascendingFullName = scanner.nextBoolean();
                 userInterface.sortAllByFullName(ascendingFullName);
                 break;
-          case 3:
-              System.out.println("Sort in ascending order? (true/false): ");
-              boolean ascendingAge = scanner.nextBoolean();
-              userInterface.sortAllByAge(ascendingAge);
-              break;
+            case 3:
+                System.out.println("Sort in ascending order? (true/false): ");
+                boolean ascendingAge = scanner.nextBoolean();
+                userInterface.sortAllByAge(ascendingAge);
+                break;
             case 4:
                 System.out.println("Sort by House:");
                 System.out.println("1. Sort in ascending order");
@@ -344,7 +342,3 @@ public class MenuHandler {
         }
     }
 }
-
-
-
-
