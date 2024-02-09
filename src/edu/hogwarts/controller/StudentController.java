@@ -16,10 +16,6 @@ public class StudentController extends Controller<HogwartsStudent>  {
         return new ArrayList<>(this.students.values());
     }
 
-    public HogwartsStudent get(UUID id) {
-        return students.get(id);
-    }
-
     public void add(HogwartsStudent student) {
         students.put(student.getId(), student);
     }

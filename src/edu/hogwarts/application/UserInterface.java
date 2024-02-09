@@ -161,22 +161,14 @@ public class UserInterface {
 
     public void viewStudent() {
         ArrayList<HogwartsStudent> allStudents = studentController.getAll();
-
-        // Sorter studerende efter fuldt navn
         Collections.sort(allStudents, Comparator.comparing(HogwartsStudent::getFullName));
-
-        // Kalder udskriftsmetoden med de sorterede studerende
         printStudentsSorted(allStudents);
     }
 
 
     public void viewTeacher() {
         ArrayList<HogwartsTeacher> allTeachers = teacherController.getAll();
-
-        // Sorter lærerne efter fuldt navn
         Collections.sort(allTeachers, Comparator.comparing(HogwartsTeacher::getFullName));
-
-        // Kalder udskriftsmetoden med de sorterede lærere
         printTeachersSorted(allTeachers);
     }
 
@@ -184,16 +176,10 @@ public class UserInterface {
     public void viewAll() {
         ArrayList<HogwartsStudent> allStudents = studentController.getAll();
         ArrayList<HogwartsTeacher> allTeachers = teacherController.getAll();
-
-        // Saml alle personer i én liste
         ArrayList<HogwartsPerson> allPersons = new ArrayList<>();
         allPersons.addAll(allStudents);
         allPersons.addAll(allTeachers);
-
-        // Sorter personerne efter fuldt navn
         Collections.sort(allPersons, Comparator.comparing(HogwartsPerson::getFullName));
-
-        // Kalder udskriftsmetoden med de sorterede personer
         printAllSorted(allPersons);
         menuHandler.searchOrFilterAll();
     }

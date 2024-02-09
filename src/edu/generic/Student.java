@@ -9,20 +9,13 @@ import java.time.LocalDate;
 public class Student extends Person implements HogwartsPerson {
 
     private final empType employment = empType.STUDENT;
-    private int enrollmentYear;
-    private int graduationYear;
-    private boolean graduated;
-    private House house;
-
-    public Student(int enrollmentYear, int graduationYear, boolean graduated, String fullName, LocalDate birthday) {
-    }
+    private final int enrollmentYear;
+    private final int graduationYear;
+    private final boolean graduated;
+    private final House house;
 
     public String getEmployment() {
         return employment.toString();
-    }
-
-    public Student() {
-        super();
     }
 
     public Student(int enrollmentYear, int graduationYear, boolean graduated, String fullName, LocalDate birthday, House house) {
@@ -37,32 +30,16 @@ public class Student extends Person implements HogwartsPerson {
         return enrollmentYear;
     }
 
-    public void setEnrollmentYear(int enrollmentYear) {
-        this.enrollmentYear = enrollmentYear;
-    }
-
     public int getGraduationYear() {
         return graduationYear;
-    }
-
-    public void setGraduationYear(int graduationYear) {
-        this.graduationYear = graduationYear;
     }
 
     public boolean isGraduated() {
         return graduated;
     }
 
-    public void setGraduated(boolean graduated) {
-        this.graduated = graduated;
-    }
-
     public House getHouse() {
         return house;
-    }
-
-    public void setHouse(House house) {
-        this.house = house;
     }
 
     @Override

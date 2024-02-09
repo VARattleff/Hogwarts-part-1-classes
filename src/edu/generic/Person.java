@@ -7,7 +7,7 @@ public class Person {
     private String firstName;
     private String lastName;
     private String middleName;
-    private LocalDate birthday;
+    private final LocalDate birthday;
     private final UUID id;
 
     public Person() {
@@ -79,14 +79,6 @@ public class Person {
 
     public UUID getId() {
         return id;
-    }
-
-    public LocalDate getBirthday() {
-        return birthday;
-    }
-
-    public void setBirthday(LocalDate birthday) {
-        this.birthday = birthday;
     }
 
     public int getAge() {

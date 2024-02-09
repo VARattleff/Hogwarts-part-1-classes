@@ -5,12 +5,8 @@ import java.time.LocalDate;
 public class Teacher extends Person {
 
     private final empType employment = empType.TEACHER;
-    private LocalDate employmentStart;
-    private LocalDate employmentEnd;
-
-    public Teacher(){
-        super();
-    }
+    private final LocalDate employmentStart;
+    private final LocalDate employmentEnd;
 
     public Teacher(LocalDate employmentStart, LocalDate employmentEnd, String fullName, LocalDate birthday ){
         super(fullName, birthday);
@@ -26,16 +22,8 @@ public class Teacher extends Person {
         return employmentStart;
     }
 
-    public void setEmploymentStart(LocalDate employmentStart) {
-        this.employmentStart = employmentStart;
-    }
-
     public LocalDate getEmploymentEnd() {
         return employmentEnd;
-    }
-
-    public void setEmploymentEnd(LocalDate employmentEnd) {
-        this.employmentEnd = employmentEnd;
     }
 
     public String toString() {

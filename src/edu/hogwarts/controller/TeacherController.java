@@ -16,10 +16,6 @@ public class TeacherController extends Controller<HogwartsTeacher> {
         return new ArrayList<>(this.teachers.values());
     }
 
-    public HogwartsTeacher get(UUID id) {
-        return teachers.get(id);
-    }
-
     public void add(HogwartsTeacher teacher) {
         teachers.put(teacher.getId(), teacher);
     }
