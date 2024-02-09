@@ -11,14 +11,15 @@ public class Teacher extends Person {
     public Teacher(){
         super();
     }
+
     public Teacher(LocalDate employmentStart, LocalDate employmentEnd, String fullName, LocalDate birthday ){
         super(fullName, birthday);
         this.employmentStart = employmentStart;
         this.employmentEnd = employmentEnd;
-
     }
-    public empType getEmployment() {
-        return employment;
+
+    public String getEmployment() {
+        return employment.toString();
     }
 
     public LocalDate getEmploymentStart() {

@@ -52,6 +52,25 @@ public class House implements HogwartsPerson {
                 "}";
     }
 
+    @Override
+    public String getFullName() {
+        return null;
+    }
+
+    @Override
+    public int getAge() {
+        return 0;
+    }
+
+    @Override
+    public House getHouse() {
+        return null;
+    }
+
+    @Override
+    public String getEmployment() {
+        return null;
+    }
 }
 
 

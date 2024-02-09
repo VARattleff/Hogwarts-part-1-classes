@@ -13,6 +13,13 @@ public class HogwartsTeacher extends Teacher implements HogwartsPerson {
         this.house = house;
         this.headOfHouse = headOfHouse;
     }
+
+    @Override
+    public String getEmployment() {
+        return "TEACHER";
+    }
+
+    @Override
     public House getHouse() {
         return house;
     }
